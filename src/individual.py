@@ -8,6 +8,12 @@ class Individual:
         self.sequence = [None] * size
         self.size = size
 
+    def __str__(self):
+        return "Individual with genes {}".format(str(self.sequence))
+
+    def __repr__(self):
+        return "Individual with genes {}".format(str(self.sequence))
+
     def randomize(self):
         for i in range(self.size):
             self.sequence[i] = random.choice(self.vocabulary)
