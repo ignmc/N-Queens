@@ -25,7 +25,7 @@ class GA:
         pop_size = len(self.population)
         for _ in range(tournament_size):
             candidate = self.population[random.randrange(pop_size)]
-            if not best or self.fit(candidate, **self.fit_kwargs) > self.fit(candidate, **self.fit_kwargs):
+            if not best or self.fit(candidate, **self.fit_kwargs) > self.fit(best, **self.fit_kwargs):
                 best = candidate
         return best
 
@@ -49,4 +49,4 @@ class GA:
                     resulting_sequence[i] = random.choice(self.vocabulary)
             child = Individual(self.n_size, self.vocabulary)
             child.sequence = resulting_sequence
-            self.population.append(Individual(self.n_size, self.vocabulary))
+            self.population.append(child)
