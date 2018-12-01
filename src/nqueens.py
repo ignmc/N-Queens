@@ -57,3 +57,17 @@ def fit(individual, **kwargs):
             if board[i][j] == "1":
                 hits += check_horizontal(board, i, j) + check_vertical(board, i, j)
     return -hits
+
+
+def avg_fitness(population, fit_func):
+    s = 0
+    for individual in population:
+        s += fit_func(individual)
+    return s/len(population)
+
+
+def has_solution(population, fit_func, optimal_fit=0):
+    for individual in population:
+        if fit_func(individual) >= optimal_fit:
+            return individual
+        return None
