@@ -50,3 +50,9 @@ class GA:
             child = Individual(self.n_size, self.vocabulary)
             child.sequence = resulting_sequence
             self.population.append(child)
+
+    def has_solution(self, fit_func, optimal_fit=0):
+        for individual in self.population:
+            if fit_func(individual) >= optimal_fit:
+                return individual
+            return None

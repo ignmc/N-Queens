@@ -64,10 +64,3 @@ def avg_fitness(population, fit_func):
     for individual in population:
         s += fit_func(individual)
     return s/len(population)
-
-
-def has_solution(population, fit_func, optimal_fit=0):
-    for individual in population:
-        if fit_func(individual) >= optimal_fit:
-            return individual
-        return None
