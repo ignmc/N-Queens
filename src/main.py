@@ -1,6 +1,12 @@
 from src.genetic_algorithm import GA
 from src.nqueens import fit as nqueens_fit
 
+MUTATION_PROB = 0.05
+POPULATION_SIZE = 100
+SEQUENCE_SIZE = 16
+VOCABULARY = ['0', '1']
+
+
 if __name__ == "__main__":
 
     def fit(individual, **kwargs):
@@ -10,7 +16,8 @@ if __name__ == "__main__":
                 c += 1
         return c
 
-    ga = GA(100, 16, ["1", "0"], nqueens_fit, 0.05)
+
+    ga = GA(POPULATION_SIZE, SEQUENCE_SIZE, VOCABULARY, nqueens_fit, MUTATION_PROB)
     ga.get_initial_population()
     for _ in range(1000):
         ga.build_mating_pool(10)
