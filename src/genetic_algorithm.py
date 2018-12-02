@@ -51,8 +51,14 @@ class GA:
             child.sequence = resulting_sequence
             self.population.append(child)
 
-    def has_solution(self, fit_func, optimal_fit=0):
+    def has_solution(self, optimal_fit=0):
         for individual in self.population:
-            if fit_func(individual) >= optimal_fit:
+            if self.fit(individual, **self.fit_kwargs) >= optimal_fit:
                 return individual
             return None
+
+    def avg_fitness(self):
+        s = 0
+        for individual in self.population:
+            s += self.fit(individual, **self.fit_kwargs)
+        return s / len(self.population)

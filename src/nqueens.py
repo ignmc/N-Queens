@@ -46,9 +46,6 @@ def fit(individual, **kwargs):
     sequence = individual.sequence
     n = int(math.sqrt(len(sequence)))
 
-    if sequence.count("1") != n:
-        return -math.sqrt(n)
-
     board = make_matrix(sequence)
 
     hits = 0  # pairs of queens that attack each other
@@ -56,11 +53,6 @@ def fit(individual, **kwargs):
         for j in range(n):
             if board[i][j] == "1":
                 hits += check_horizontal(board, i, j) + check_vertical(board, i, j)
+    diff = abs(sequence.count('1') - n)
+    hits += diff * n  # penalize for placing less or more than n queens
     return -hits
-
-
-def avg_fitness(population, fit_func):
-    s = 0
-    for individual in population:
-        s += fit_func(individual)
-    return s/len(population)
