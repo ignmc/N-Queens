@@ -8,7 +8,7 @@ POPULATION_SIZE = 100
 SEQUENCE_SIZE = 25  # length of the sequences (or number of slots in a chess board)
 VOCABULARY = ['0', '1']  # possible values for a sequence
 GENERATIONS = 500
-TOURNAMENT_SIZE = 10
+TOURNAMENT_SIZE = 50
 
 
 if __name__ == "__main__":
