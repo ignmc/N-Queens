@@ -3,12 +3,12 @@ from src.nqueens import fit as nqueens_fit
 import matplotlib.pyplot as plt
 
 
-MUTATION_PROB = 0.05
+MUTATION_PROB = 0.03
 POPULATION_SIZE = 100
 SEQUENCE_SIZE = 25  # length of the sequences (or number of slots in a chess board)
 VOCABULARY = ['0', '1']  # possible values for a sequence
 GENERATIONS = 500
-TOURNAMENT_SIZE = 50
+TOURNAMENT_SIZE = 10
 
 
 if __name__ == "__main__":
